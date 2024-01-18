@@ -23,7 +23,7 @@ char	*get_next_line(int fd);
 void	search_line(int fd, char **save, char **line);
 void	clear_save(char **save);
 char	*ft_strdup(char	*tmp);
-void	get_line(char *save, char **line);
+void	ft_get_line(char *save, char **line);
 char	*ft_strjoin(char *s1, char *s2);
 void	free_save(char *save);
 int	    ft_strlen(char *str);

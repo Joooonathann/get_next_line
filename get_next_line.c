@@ -49,7 +49,7 @@ void	search_line(int fd, char **save, char **line)
 		free_save(*save);
 		return ;
 	}
-	get_line(*save, line);
+	ft_get_line(*save, line);
 	clear_save(save);
 }
 
@@ -76,7 +76,7 @@ void	clear_save(char **save)
 	free(tmp);
 }
 
-void	get_line(char *save, char **line)
+void	ft_get_line(char *save, char **line)
 {
 	int		i;
 	char	*str;

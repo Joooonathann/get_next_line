@@ -58,18 +58,18 @@ int	ft_strlen(char *str)
 
 int	new_line(char *str)
 {
-    int i;
+	int i;
 
-    if (!str)
-        return (0);
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if (str[i] == '\n')
-            return (1);
-        i++;
-    }
-    return (0);
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 char	*ft_strdup(char	*tmp)
@@ -82,10 +82,10 @@ char	*ft_strdup(char	*tmp)
 		return (NULL);
 	i = 0;
 	while (tmp[i])
-    {
+	{
 		result[i] = tmp[i];
-        i++;
-    }
+		i++;
+	}
 	result[i] = '\0';
 	return (result);
 }
