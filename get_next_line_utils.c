@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jalbiser <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:26:15 by jalbiser          #+#    #+#             */
-/*   Updated: 2023/12/07 13:26:18 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/02/07 09:46:01 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "get_next_line.h"
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -58,7 +59,7 @@ int	ft_strlen(char *str)
 
 int	new_line(char *str)
 {
-	int i;
+	int	i;
 
 	if (!str)
 		return (0);

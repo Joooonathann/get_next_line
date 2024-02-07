@@ -3,44 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jalbiser <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:26:05 by jalbiser          #+#    #+#             */
-/*   Updated: 2023/12/07 13:26:06 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/02/07 09:49:34 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "get_next_line.h"
 
 char	*get_next_line(int fd)
 {
 	static char	*save = NULL;
 	char		*line;
+	int			read_on;
 
 	if ((fd < 0) || (BUFFER_SIZE <= 0) || (read(fd, 0, 0) == -1))
 		return (NULL);
 	line = NULL;
- 	search_line(fd, &save, &line);
+	search_line(fd, &save, &line, &read_on);
 	return (line);
 }
 
-void	search_line(int fd, char **save, char **line)
+void	search_line(int fd, char **save, char **line, int *read_on)
 {
-	int		read_on;
 	char	*buff;
-	
-	read_on = 1;
-	while (read_on > 0 && !new_line(*save))
+
+	*read_on = 1;
+	while (*read_on > 0 && !new_line(*save))
 	{
 		buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 		if (!buff)
 			return ;
-		read_on = (int)read(fd, buff, BUFFER_SIZE);
-		if ((*save == NULL && read_on == 0) || (read_on == -1))
+		*read_on = (int)read(fd, buff, BUFFER_SIZE);
+		if ((*save == NULL && *read_on == 0) || (*read_on == -1))
 		{
 			free(buff);
 			return ;
 		}
-		buff[read_on] = '\0';
+		buff[*read_on] = '\0';
 		(*save) = ft_strjoin(*save, buff);
 		free(buff);
 	}
